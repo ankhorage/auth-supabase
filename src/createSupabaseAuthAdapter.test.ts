@@ -1,4 +1,4 @@
-import type { AuthAdapter } from '@ankhorage/contracts/auth';
+import type { AuthPort } from '@ankhorage/auth';
 import { expect, it } from 'bun:test';
 
 import { createSupabaseAuthAdapter } from './createSupabaseAuthAdapter.js';
@@ -26,8 +26,8 @@ it('validates required config', () => {
   ).toThrow('Supabase Auth URL must be a valid URL.');
 });
 
-it('returns an AuthAdapter-compatible object', () => {
-  const adapter: AuthAdapter = createSupabaseAuthAdapter({
+it('returns an AuthPort-compatible object without legacy support flags', () => {
+  const adapter: AuthPort = createSupabaseAuthAdapter({
     url: 'https://example.supabase.co',
     anonKey: 'anon',
     fetch: createFetch([
@@ -44,7 +44,18 @@ it('returns an AuthAdapter-compatible object', () => {
     ]),
   });
 
-  expect(adapter.capabilities?.supportsSessionRefresh).toBe(true);
+  expect(adapter).not.toHaveProperty('capabilities');
+  expect(Object.keys(adapter).sort()).toEqual([
+    'completeAuthorization',
+    'getSession',
+    'refreshSession',
+    'requestPasswordReset',
+    'signIn',
+    'signOut',
+    'signUp',
+    'startAuthorization',
+    'verifyOtp',
+  ]);
 });
 
 it('normalizes a successful email and password sign-in response', async () => {

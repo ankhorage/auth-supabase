@@ -4,13 +4,15 @@
 
 Kind: `function`
 Module: `src/createSupabaseAuthAdapter.ts`
-Source: `src/createSupabaseAuthAdapter.ts:23:1`
+Source: `src/createSupabaseAuthAdapter.ts:26:1`
+
+Create a Supabase implementation of the provider-neutral authentication port.
 
 ### Signatures
 
-- `(config: SupabaseAuthConfig) => AuthAdapter`
+- `(config: SupabaseAuthConfig) => AuthPort`
   - config: `SupabaseAuthConfig`
-  - returns: `AuthAdapter`
+  - returns: `AuthPort`
 
 ## createSupabaseOAuthProfileVerifier
 

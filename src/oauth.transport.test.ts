@@ -14,13 +14,13 @@ it('rejects disabled providers and unsafe redirects', async () => {
     oauthProviders: ['google'],
   });
   expect(
-    await adapter.oauth?.startAuthorization({
+    await adapter.startAuthorization({
       provider: 'apple',
       redirectUri: 'ankh-app://auth/callback',
     }),
   ).toMatchObject({ ok: false, error: { code: 'provider_disabled' } });
   expect(
-    await adapter.oauth?.startAuthorization({
+    await adapter.startAuthorization({
       provider: 'google',
       redirectUri: 'javascript:alert(1)',
     }),
@@ -42,7 +42,7 @@ it('models browser and provider cancellation without exchanging a code', async (
   });
   const started = await startGoogleOAuth(adapter);
   expect(
-    await adapter.oauth?.completeAuthorization({
+    await adapter.completeAuthorization({
       attemptId: started.attemptId,
       response: { type: 'cancelled', reason: 'browser_dismissed' },
     }),
@@ -56,7 +56,7 @@ it('models browser and provider cancellation without exchanging a code', async (
 
   const startedAgain = await startGoogleOAuth(adapter);
   expect(
-    await adapter.oauth?.completeAuthorization({
+    await adapter.completeAuthorization({
       attemptId: startedAgain.attemptId,
       response: {
         type: 'callback',

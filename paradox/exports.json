@@ -2,7 +2,7 @@
   {
     "name": "createSupabaseAuthAdapter",
     "title": null,
-    "description": null,
+    "description": "Create a Supabase implementation of the provider-neutral authentication port.",
     "isReadme": false,
     "see": [],
     "security": [],
@@ -10,7 +10,7 @@
     "modulePath": "src/createSupabaseAuthAdapter.ts",
     "sourceLocation": {
       "filePath": "src/createSupabaseAuthAdapter.ts",
-      "line": 23,
+      "line": 26,
       "column": 1
     },
     "exportPaths": [
@@ -21,7 +21,7 @@
     ],
     "signatures": [
       {
-        "label": "(config: SupabaseAuthConfig) => AuthAdapter",
+        "label": "(config: SupabaseAuthConfig) => AuthPort",
         "parameters": [
           {
             "name": "config",
@@ -30,7 +30,7 @@
             "description": null
           }
         ],
-        "returnType": "AuthAdapter",
+        "returnType": "AuthPort",
         "returnDescription": null
       }
     ],

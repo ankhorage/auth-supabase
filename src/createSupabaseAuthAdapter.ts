@@ -1,4 +1,5 @@
-import type { AuthAdapter, AuthSession } from '@ankhorage/contracts/auth';
+import type { AuthPort } from '@ankhorage/auth';
+import type { AuthSession } from '@ankhorage/contracts/auth';
 
 import {
   type RequiredSupabaseAuthConfig,
@@ -17,22 +18,16 @@ import {
   createSignOutOperation,
 } from './authSessionOperations.js';
 import { createSupabaseOAuthAdapter } from './oauth.js';
+import { oauthCompletionError, oauthStartError } from './oauthErrors.js';
 import { createSupabaseOAuthProfileVerifier } from './profileVerification.js';
 import type { SupabaseAuthConfig, SupabaseOAuthProfileVerifier } from './types.js';
 
-export function createSupabaseAuthAdapter(config: SupabaseAuthConfig): AuthAdapter {
+/*** Create a Supabase implementation of the provider-neutral authentication port. */
+export function createSupabaseAuthAdapter(config: SupabaseAuthConfig): AuthPort {
   const normalizedConfig = validateSupabaseAuthConfig(config);
   const context = createAuthOperationContext(normalizedConfig);
-  const oauth = createOAuthAdapter(context);
+  const oauth = createOAuthOperations(context);
   return {
-    capabilities: {
-      signInIdentifiers: ['email', 'phone'],
-      supportsSignUp: true,
-      supportsPasswordReset: true,
-      supportsOtp: true,
-      supportsSessionRefresh: true,
-    },
-    ...(oauth === undefined ? {} : { oauth }),
     signIn: createSignInOperation(context),
     signUp: createSignUpOperation(context),
     signOut: createSignOutOperation(context),
@@ -40,12 +35,15 @@ export function createSupabaseAuthAdapter(config: SupabaseAuthConfig): AuthAdapt
     refreshSession: createRefreshSessionOperation(context),
     requestPasswordReset: createPasswordResetOperation(context),
     verifyOtp: createVerifyOtpOperation(context),
+    startAuthorization: oauth.startAuthorization,
+    completeAuthorization: oauth.completeAuthorization,
   };
 }
 
-function createOAuthAdapter(context: AuthOperationContext) {
+/*** Create OAuth port operations from the configured Supabase provider set. */
+function createOAuthOperations(context: AuthOperationContext) {
   const { config } = context;
-  if (config.oauthProviders.length === 0) return undefined;
+  if (config.oauthProviders.length === 0) return createDisabledOAuthOperations();
   const profileVerifier = createProfileVerifier(config);
   return createSupabaseOAuthAdapter({
     url: config.url,
@@ -61,6 +59,34 @@ function createOAuthAdapter(context: AuthOperationContext) {
       ? {}
       : { onLifecycleEvent: config.onOAuthLifecycleEvent }),
   });
+}
+
+/*** Return explicit unsupported OAuth results when no OAuth provider was configured. */
+function createDisabledOAuthOperations(): Pick<
+  AuthPort,
+  'startAuthorization' | 'completeAuthorization'
+> {
+  return {
+    startAuthorization: (input) =>
+      Promise.resolve(
+        oauthStartError(
+          'provider_misconfigured',
+          'No OAuth providers are configured for this Supabase Auth adapter.',
+          input.provider,
+          false,
+        ),
+      ),
+    completeAuthorization: () =>
+      Promise.resolve(
+        oauthCompletionError(
+          'authorization_attempt_not_found',
+          'callback',
+          'No OAuth authorization attempt can exist without a configured OAuth provider.',
+          undefined,
+          false,
+        ),
+      ),
+  };
 }
 
 function createOAuthSessionPersistence(context: AuthOperationContext) {

@@ -60,7 +60,7 @@ it('completes an OAuth callback exactly once', async () => {
     'ankh-app://auth/callback?code=opaque-code&error_description=invalid',
   ]) {
     expect(
-      await adapter.oauth?.completeAuthorization({
+      await adapter.completeAuthorization({
         attemptId: started.attemptId,
         response: { type: 'callback', url: callbackUrl },
       }),
@@ -93,9 +93,9 @@ it('serializes concurrent exact replay and mismatched callback completion', asyn
       url: 'ankh-app://auth/callback?code=concurrent-code',
     },
   };
-  const firstCompletion = adapter.oauth?.completeAuthorization(exactCallback);
-  const exactReplay = adapter.oauth?.completeAuthorization(exactCallback);
-  const mismatch = adapter.oauth?.completeAuthorization({
+  const firstCompletion = adapter.completeAuthorization(exactCallback);
+  const exactReplay = adapter.completeAuthorization(exactCallback);
+  const mismatch = adapter.completeAuthorization({
     attemptId: started.attemptId,
     response: {
       type: 'callback',
@@ -145,7 +145,7 @@ it('rejects a consumed callback after a newer authorization attempt starts', asy
   });
 
   const second = await startGoogleOAuth(adapter);
-  const stale = await adapter.oauth?.completeAuthorization({
+  const stale = await adapter.completeAuthorization({
     attemptId: second.attemptId,
     response: { type: 'callback', url: consumedCallback },
   });

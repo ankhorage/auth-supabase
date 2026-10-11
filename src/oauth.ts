@@ -1,5 +1,5 @@
+import type { AuthPort } from '@ankhorage/auth';
 import type {
-  AuthOAuthAdapter,
   AuthOAuthCompletionResult,
   CompleteOAuthAuthorizationInput,
 } from '@ankhorage/contracts/auth';
@@ -9,14 +9,13 @@ import { createOAuthRuntimeContext } from './oauthRuntime.js';
 import { startSupabaseOAuthAuthorization } from './oauthStart.js';
 import type { CreateSupabaseOAuthAdapterInput } from './oauthTypes.js';
 
-/*** Creates the Supabase OAuth adapter around isolated start and completion operations. */
+/*** Create the Supabase implementations of the neutral OAuth port operations. */
 export function createSupabaseOAuthAdapter(
   input: CreateSupabaseOAuthAdapterInput,
-): AuthOAuthAdapter {
+): Pick<AuthPort, 'startAuthorization' | 'completeAuthorization'> {
   const context = createOAuthRuntimeContext(input);
   const completeAuthorization = createCompletionRunner(context);
   return {
-    capabilities: { providers: context.providers },
     startAuthorization: (authorizationInput) =>
       startSupabaseOAuthAuthorization(context, authorizationInput),
     completeAuthorization,

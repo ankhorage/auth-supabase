@@ -1,14 +1,11 @@
-import type {
-  AuthAdapter,
-  AuthAdapterError,
-  AuthResult,
-  AuthSession,
-} from '@ankhorage/contracts/auth';
+import type { AuthPort } from '@ankhorage/auth';
+import type { AuthAdapterError, AuthResult, AuthSession } from '@ankhorage/contracts/auth';
 
 import type { AuthOperationContext } from './authSessionContext.js';
 import { createAuthError, mapNetworkError, mapSupabaseError, readResponseBody } from './errors.js';
 
-export function createSignOutOperation(context: AuthOperationContext): AuthAdapter['signOut'] {
+/*** Create the Supabase sign-out implementation for the neutral authentication port. */
+export function createSignOutOperation(context: AuthOperationContext): AuthPort['signOut'] {
   return async (input): Promise<AuthResult> => {
     const providerError = await signOutProvider(context, input?.allDevices === true);
     const persistenceError = await context.persistSessionSafely(null);
@@ -17,9 +14,7 @@ export function createSignOutOperation(context: AuthOperationContext): AuthAdapt
   };
 }
 
-export function createGetSessionOperation(
-  context: AuthOperationContext,
-): AuthAdapter['getSession'] {
+export function createGetSessionOperation(context: AuthOperationContext): AuthPort['getSession'] {
   return async (): Promise<AuthResult<AuthSession | null>> => {
     try {
       return { ok: true, data: await context.readStoredSession() };
@@ -37,7 +32,7 @@ export function createGetSessionOperation(
 
 export function createRefreshSessionOperation(
   context: AuthOperationContext,
-): AuthAdapter['refreshSession'] {
+): AuthPort['refreshSession'] {
   return async (): Promise<AuthResult<AuthSession | null>> => {
     const session = await readRefreshSession(context);
     if (!session.ok) return session;

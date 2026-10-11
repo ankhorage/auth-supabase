@@ -1,11 +1,11 @@
 {
-  "name": "@ankhorage/supabase-auth",
+  "name": "@ankhorage/auth-supabase",
   "type": "module",
   "version": "1.2.44",
-  "description": "Supabase auth adapter implementing shared TypeScript auth contracts.",
-  "homepage": "https://github.com/ankhorage/supabase-auth#readme",
+  "description": "Supabase adapter implementing the provider-neutral Ankhorage auth port.",
+  "homepage": "https://github.com/ankhorage/auth-supabase#readme",
   "bugs": {
-    "url": "https://github.com/ankhorage/supabase-auth/issues"
+    "url": "https://github.com/ankhorage/auth-supabase/issues"
   },
   "license": "MIT",
   "main": "./dist/index.js",
@@ -19,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ankhorage/supabase-auth.git"
+    "url": "git+https://github.com/ankhorage/auth-supabase.git"
   },
   "keywords": [
     "adapter",
@@ -64,6 +64,7 @@
     "typescript": "^6.0.3"
   },
   "dependencies": {
+    "@ankhorage/auth": "^0.1.2",
     "@ankhorage/contracts": "^25.2.0",
     "@noble/hashes": "2.4.0"
   },

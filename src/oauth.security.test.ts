@@ -52,7 +52,7 @@ it('rejects an invalid injected random byte result without persisting PKCE state
   });
 
   expect(
-    await adapter.oauth?.startAuthorization({
+    await adapter.startAuthorization({
       provider: 'google',
       redirectUri: 'ankh-app://auth/callback',
     }),
@@ -102,7 +102,7 @@ it('redacts every PKCE and OAuth value from terminal exchange errors', async () 
   expect(
     sensitiveValues.every((value) => value.length > 0 && !serializedResult.includes(value)),
   ).toBe(true);
-  expect(completed?.ok === false && completed.status === 'error').toBe(true);
+  expect(completed.ok === false && completed.status === 'error').toBe(true);
   expect([...values.keys()].some((key) => key.endsWith('.pkce-verifier'))).toBe(false);
 });
 

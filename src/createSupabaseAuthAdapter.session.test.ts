@@ -44,7 +44,7 @@ it('requests an email password reset', async () => {
     fetch: createFetch([jsonResponse({})], calls),
   });
 
-  const result = await adapter.requestPasswordReset?.({
+  const result = await adapter.requestPasswordReset({
     identifier: { kind: 'email', value: 'user@example.com' },
     redirectTo: 'https://app.example.com/reset',
   });
@@ -80,7 +80,7 @@ it('verifies an email OTP and persists the session', async () => {
     ),
   });
 
-  const result = await adapter.verifyOtp?.({
+  const result = await adapter.verifyOtp({
     identifier: { kind: 'email', value: 'otp@example.com' },
     token: '123456',
   });
@@ -128,7 +128,7 @@ it('refreshes a stored session', async () => {
     ),
   });
 
-  const result = await adapter.refreshSession?.();
+  const result = await adapter.refreshSession();
 
   expect(result).toMatchObject({
     ok: true,
@@ -150,7 +150,7 @@ it('returns a missing refresh token error', async () => {
     fetch: createFetch([]),
   });
 
-  const result = await adapter.refreshSession?.();
+  const result = await adapter.refreshSession();
 
   expect(result).toEqual({
     ok: false,

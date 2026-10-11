@@ -1,5 +1,5 @@
+import type { AuthPort } from '@ankhorage/auth';
 import type {
-  AuthAdapter,
   AuthResult,
   AuthSession,
   AuthUser,
@@ -13,7 +13,8 @@ import type { AuthOperationContext } from './authSessionContext.js';
 import { createAuthError, mapNetworkError, mapSupabaseError, readResponseBody } from './errors.js';
 import { normalizeSupabaseSession, normalizeSupabaseUser } from './session.js';
 
-export function createSignInOperation(context: AuthOperationContext): AuthAdapter['signIn'] {
+/*** Create the Supabase sign-in implementation for the neutral authentication port. */
+export function createSignInOperation(context: AuthOperationContext): AuthPort['signIn'] {
   return async (input: SignInInput): Promise<AuthResult<AuthSession>> => {
     const credentials = passwordCredentials(input.identifier, input.password);
     if (!credentials.ok) return credentials;
@@ -28,7 +29,8 @@ export function createSignInOperation(context: AuthOperationContext): AuthAdapte
   };
 }
 
-export function createSignUpOperation(context: AuthOperationContext): AuthAdapter['signUp'] {
+/*** Create the Supabase sign-up implementation for the neutral authentication port. */
+export function createSignUpOperation(context: AuthOperationContext): AuthPort['signUp'] {
   return async (input: SignUpInput): Promise<AuthResult<AuthSession | AuthUser>> => {
     const credentials = passwordCredentials(input.identifier, input.password);
     if (!credentials.ok) return credentials;
@@ -46,7 +48,7 @@ export function createSignUpOperation(context: AuthOperationContext): AuthAdapte
 
 export function createPasswordResetOperation(
   context: AuthOperationContext,
-): AuthAdapter['requestPasswordReset'] {
+): AuthPort['requestPasswordReset'] {
   return async (input: PasswordResetInput): Promise<AuthResult> => {
     const email = passwordResetEmail(input);
     if (!email.ok) return email;
@@ -63,7 +65,8 @@ export function createPasswordResetOperation(
   };
 }
 
-export function createVerifyOtpOperation(context: AuthOperationContext): AuthAdapter['verifyOtp'] {
+/*** Create the Supabase OTP verification implementation for the neutral authentication port. */
+export function createVerifyOtpOperation(context: AuthOperationContext): AuthPort['verifyOtp'] {
   return async (input: VerifyOtpInput): Promise<AuthResult<AuthSession>> => {
     const body = otpBody(input);
     if (!body.ok) return body;
