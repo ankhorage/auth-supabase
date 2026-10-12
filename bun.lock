@@ -3,7 +3,7 @@
   "configVersion": 1,
   "workspaces": {
     "": {
-      "name": "@ankhorage/supabase-auth",
+      "name": "@ankhorage/auth-supabase",
       "dependencies": {
         "@ankhorage/auth": "^0.1.2",
         "@ankhorage/contracts": "^25.2.0",

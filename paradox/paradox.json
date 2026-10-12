@@ -1,7 +1,7 @@
 {
   "packageName": "SUPABASE AUTH",
-  "packageId": "@ankhorage/auth-supabase",
-  "description": "Supabase adapter implementing the provider-neutral Ankhorage auth port.",
+  "packageId": "@ankhorage/supabase-auth",
+  "description": "Supabase auth adapter implementing shared TypeScript auth contracts.",
   "collaborators": null,
   "donation": null,
   "badges": [
@@ -61,12 +61,19 @@
     }
   ],
   "usage": {
-    "packageName": "@ankhorage/auth-supabase",
-    "command": "ankh auth-supabase --help"
+    "packageName": "@ankhorage/supabase-auth",
+    "command": "ankh supabase-auth --help"
   },
   "usageEntries": [],
   "exampleCount": 0,
   "findings": [
+    {
+      "ruleId": "documentation.public-function.description",
+      "severity": "warning",
+      "message": "Exported function createSupabaseAuthAdapter has no documentation description.",
+      "sourcePath": "src/createSupabaseAuthAdapter.ts",
+      "line": 23
+    },
     {
       "ruleId": "documentation.public-function.description",
       "severity": "warning",
@@ -192,7 +199,6 @@
         "src/authSessionContext.ts",
         "src/authSessionOperations.ts",
         "src/oauth.ts",
-        "src/oauthErrors.ts",
         "src/profileVerification.ts",
         "src/types.ts"
       ],
@@ -530,7 +536,7 @@
     {
       "name": "createSupabaseAuthAdapter",
       "title": null,
-      "description": "Create a Supabase implementation of the provider-neutral authentication port.",
+      "description": null,
       "isReadme": false,
       "see": [],
       "security": [],
@@ -538,7 +544,7 @@
       "modulePath": "src/createSupabaseAuthAdapter.ts",
       "sourceLocation": {
         "filePath": "src/createSupabaseAuthAdapter.ts",
-        "line": 26,
+        "line": 23,
         "column": 1
       },
       "exportPaths": [
@@ -549,7 +555,7 @@
       ],
       "signatures": [
         {
-          "label": "(config: SupabaseAuthConfig) => AuthPort",
+          "label": "(config: SupabaseAuthConfig) => AuthAdapter",
           "parameters": [
             {
               "name": "config",
@@ -558,7 +564,7 @@
               "description": null
             }
           ],
-          "returnType": "AuthPort",
+          "returnType": "AuthAdapter",
           "returnDescription": null
         }
       ],
@@ -1711,23 +1717,23 @@
     },
     {
       "name": "createSignInOperation",
-      "description": "Create the Supabase sign-in implementation for the neutral authentication port.",
+      "description": null,
       "see": [],
       "security": [],
       "sourceLocation": {
         "filePath": "src/authPasswordOperations.ts",
-        "line": 17,
+        "line": 16,
         "column": 1
       }
     },
     {
       "name": "createSignUpOperation",
-      "description": "Create the Supabase sign-up implementation for the neutral authentication port.",
+      "description": null,
       "see": [],
       "security": [],
       "sourceLocation": {
         "filePath": "src/authPasswordOperations.ts",
-        "line": 33,
+        "line": 31,
         "column": 1
       }
     },
@@ -1738,18 +1744,18 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/authPasswordOperations.ts",
-        "line": 49,
+        "line": 47,
         "column": 1
       }
     },
     {
       "name": "createVerifyOtpOperation",
-      "description": "Create the Supabase OTP verification implementation for the neutral authentication port.",
+      "description": null,
       "see": [],
       "security": [],
       "sourceLocation": {
         "filePath": "src/authPasswordOperations.ts",
-        "line": 69,
+        "line": 66,
         "column": 1
       }
     },
@@ -1760,7 +1766,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/authPasswordOperations.ts",
-        "line": 85,
+        "line": 82,
         "column": 1
       }
     },
@@ -1771,7 +1777,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/authPasswordOperations.ts",
-        "line": 105,
+        "line": 102,
         "column": 1
       }
     },
@@ -1782,7 +1788,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/authPasswordOperations.ts",
-        "line": 112,
+        "line": 109,
         "column": 1
       }
     },
@@ -1793,7 +1799,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/authPasswordOperations.ts",
-        "line": 128,
+        "line": 125,
         "column": 1
       }
     },
@@ -1804,7 +1810,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/authPasswordOperations.ts",
-        "line": 149,
+        "line": 146,
         "column": 1
       }
     },
@@ -1815,7 +1821,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/authPasswordOperations.ts",
-        "line": 155,
+        "line": 152,
         "column": 1
       }
     },
@@ -1826,7 +1832,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/authPasswordOperations.ts",
-        "line": 171,
+        "line": 168,
         "column": 1
       }
     },
@@ -1837,7 +1843,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/authPasswordOperations.ts",
-        "line": 179,
+        "line": 176,
         "column": 1
       }
     },
@@ -1920,12 +1926,12 @@
     },
     {
       "name": "createSignOutOperation",
-      "description": "Create the Supabase sign-out implementation for the neutral authentication port.",
+      "description": null,
       "see": [],
       "security": [],
       "sourceLocation": {
         "filePath": "src/authSessionOperations.ts",
-        "line": 8,
+        "line": 11,
         "column": 1
       }
     },
@@ -1936,7 +1942,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/authSessionOperations.ts",
-        "line": 17,
+        "line": 20,
         "column": 1
       }
     },
@@ -1947,7 +1953,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/authSessionOperations.ts",
-        "line": 33,
+        "line": 38,
         "column": 1
       }
     },
@@ -1958,7 +1964,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/authSessionOperations.ts",
-        "line": 56,
+        "line": 61,
         "column": 1
       }
     },
@@ -1969,40 +1975,29 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/authSessionOperations.ts",
-        "line": 81,
+        "line": 86,
         "column": 1
       }
     },
     {
       "name": "createSupabaseAuthAdapter",
-      "description": "Create a Supabase implementation of the provider-neutral authentication port.",
+      "description": null,
       "see": [],
       "security": [],
       "sourceLocation": {
         "filePath": "src/createSupabaseAuthAdapter.ts",
-        "line": 26,
+        "line": 23,
         "column": 1
       }
     },
     {
-      "name": "createOAuthOperations",
-      "description": "Create OAuth port operations from the configured Supabase provider set.",
+      "name": "createOAuthAdapter",
+      "description": null,
       "see": [],
       "security": [],
       "sourceLocation": {
         "filePath": "src/createSupabaseAuthAdapter.ts",
-        "line": 44,
-        "column": 1
-      }
-    },
-    {
-      "name": "createDisabledOAuthOperations",
-      "description": "Return explicit unsupported OAuth results when no OAuth provider was configured.",
-      "see": [],
-      "security": [],
-      "sourceLocation": {
-        "filePath": "src/createSupabaseAuthAdapter.ts",
-        "line": 65,
+        "line": 46,
         "column": 1
       }
     },
@@ -2013,7 +2008,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/createSupabaseAuthAdapter.ts",
-        "line": 92,
+        "line": 66,
         "column": 1
       }
     },
@@ -2024,7 +2019,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/createSupabaseAuthAdapter.ts",
-        "line": 99,
+        "line": 73,
         "column": 1
       }
     },
@@ -2035,7 +2030,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/createSupabaseAuthAdapter.ts",
-        "line": 111,
+        "line": 85,
         "column": 1
       }
     },
@@ -2151,7 +2146,7 @@
     },
     {
       "name": "createSupabaseOAuthAdapter",
-      "description": "Create the Supabase implementations of the neutral OAuth port operations.",
+      "description": "Creates the Supabase OAuth adapter around isolated start and completion operations.",
       "see": [],
       "security": [],
       "sourceLocation": {
@@ -2167,7 +2162,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/oauth.ts",
-        "line": 26,
+        "line": 27,
         "column": 1
       }
     },
@@ -3399,7 +3394,7 @@
       "name": "createSupabaseAuthAdapter",
       "sourcePath": "src/createSupabaseAuthAdapter.ts",
       "symbolName": "createSupabaseAuthAdapter",
-      "description": "Create a Supabase implementation of the provider-neutral authentication port.",
+      "description": null,
       "isReadme": false
     },
     {
@@ -3547,11 +3542,6 @@
       {
         "fromPath": "src/createSupabaseAuthAdapter.ts",
         "toPath": "src/oauth.ts",
-        "sourcePath": "src/createSupabaseAuthAdapter.ts"
-      },
-      {
-        "fromPath": "src/createSupabaseAuthAdapter.ts",
-        "toPath": "src/oauthErrors.ts",
         "sourcePath": "src/createSupabaseAuthAdapter.ts"
       },
       {
@@ -4254,8 +4244,8 @@
       },
       {
         "fromSymbol": "createSupabaseAuthAdapter",
-        "toSymbol": "createOAuthOperations",
-        "callExpression": "createOAuthOperations",
+        "toSymbol": "createOAuthAdapter",
+        "callExpression": "createOAuthAdapter",
         "sourcePath": "src/createSupabaseAuthAdapter.ts"
       },
       {
@@ -4301,45 +4291,27 @@
         "sourcePath": "src/createSupabaseAuthAdapter.ts"
       },
       {
-        "fromSymbol": "createOAuthOperations",
-        "toSymbol": "createDisabledOAuthOperations",
-        "callExpression": "createDisabledOAuthOperations",
-        "sourcePath": "src/createSupabaseAuthAdapter.ts"
-      },
-      {
-        "fromSymbol": "createOAuthOperations",
+        "fromSymbol": "createOAuthAdapter",
         "toSymbol": "createProfileVerifier",
         "callExpression": "createProfileVerifier",
         "sourcePath": "src/createSupabaseAuthAdapter.ts"
       },
       {
-        "fromSymbol": "createOAuthOperations",
+        "fromSymbol": "createOAuthAdapter",
         "toSymbol": "createSupabaseOAuthAdapter",
         "callExpression": "createSupabaseOAuthAdapter",
         "sourcePath": "src/createSupabaseAuthAdapter.ts"
       },
       {
-        "fromSymbol": "createOAuthOperations",
+        "fromSymbol": "createOAuthAdapter",
         "toSymbol": "requireOAuthStorage",
         "callExpression": "requireOAuthStorage",
         "sourcePath": "src/createSupabaseAuthAdapter.ts"
       },
       {
-        "fromSymbol": "createOAuthOperations",
+        "fromSymbol": "createOAuthAdapter",
         "toSymbol": "createOAuthSessionPersistence",
         "callExpression": "createOAuthSessionPersistence",
-        "sourcePath": "src/createSupabaseAuthAdapter.ts"
-      },
-      {
-        "fromSymbol": "startAuthorization",
-        "toSymbol": "oauthStartError",
-        "callExpression": "oauthStartError",
-        "sourcePath": "src/createSupabaseAuthAdapter.ts"
-      },
-      {
-        "fromSymbol": "completeAuthorization",
-        "toSymbol": "oauthCompletionError",
-        "callExpression": "oauthCompletionError",
         "sourcePath": "src/createSupabaseAuthAdapter.ts"
       },
       {
@@ -5606,7 +5578,7 @@
     "typeReferences": [
       {
         "fromSymbol": "createSupabaseAuthAdapter",
-        "toType": "AuthPort",
+        "toType": "AuthAdapter",
         "sourcePath": "src/createSupabaseAuthAdapter.ts"
       },
       {
