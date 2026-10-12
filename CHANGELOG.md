@@ -1,5 +1,12 @@
 # @ankhorage/supabase-auth
 
+## 2.0.0
+
+### Major Changes
+
+- 614c195: Rename the Supabase authentication adapter to `@ankhorage/auth-supabase` and implement the
+  released provider-neutral `@ankhorage/auth` port with canonical `auth.*` operations.
+
 ## 1.2.44
 
 ### Patch Changes
