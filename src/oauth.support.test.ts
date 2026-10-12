@@ -1,4 +1,4 @@
-import type { AuthAdapter } from '@ankhorage/contracts/auth';
+import type { AuthPort } from '@ankhorage/auth';
 import { sha256 } from '@noble/hashes/sha2.js';
 import { utf8ToBytes } from '@noble/hashes/utils.js';
 import { expect } from 'bun:test';
@@ -64,24 +64,24 @@ export function oauthSessionResponse(input: {
   });
 }
 
-export async function startGoogleOAuth(adapter: AuthAdapter) {
-  const started = await adapter.oauth?.startAuthorization({
+export async function startGoogleOAuth(adapter: AuthPort) {
+  const started = await adapter.startAuthorization({
     provider: 'google',
     redirectUri: 'ankh-app://auth/callback',
   });
-  if (started?.ok !== true) throw new Error('OAuth start failed.');
+  if (started.ok !== true) throw new Error('OAuth start failed.');
   return started.data;
 }
 
-export async function completeOAuthCode(adapter: AuthAdapter, attemptId: string, code: string) {
-  return adapter.oauth?.completeAuthorization({
+export async function completeOAuthCode(adapter: AuthPort, attemptId: string, code: string) {
+  return adapter.completeAuthorization({
     attemptId,
     response: { type: 'callback', url: `ankh-app://auth/callback?code=${code}` },
   });
 }
 
 export async function expectReplayProtection(
-  adapter: AuthAdapter,
+  adapter: AuthPort,
   attemptId: string,
   code: string,
 ): Promise<void> {
@@ -124,14 +124,14 @@ export function createCanonicalOAuthHarness() {
   return { adapter, calls, values };
 }
 
-export async function startCanonicalOAuth(adapter: AuthAdapter) {
-  const started = await adapter.oauth?.startAuthorization({
+export async function startCanonicalOAuth(adapter: AuthPort) {
+  const started = await adapter.startAuthorization({
     provider: 'google',
     redirectUri: 'ankh-app://auth/callback',
     scopes: ['openid', 'email'],
     queryParams: { prompt: 'select_account' },
   });
-  if (started?.ok !== true) throw new Error('OAuth start failed.');
+  if (started.ok !== true) throw new Error('OAuth start failed.');
   return started.data;
 }
 

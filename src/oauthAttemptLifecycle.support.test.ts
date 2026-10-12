@@ -1,4 +1,5 @@
-import type { AuthOAuthAdapter, CompleteOAuthAuthorizationInput } from '@ankhorage/contracts/auth';
+import type { AuthPort } from '@ankhorage/auth';
+import type { CompleteOAuthAuthorizationInput } from '@ankhorage/contracts/auth';
 
 import { createSupabaseOAuthAdapter } from './oauth.js';
 import type {
@@ -71,7 +72,9 @@ export function createHarness(
   };
 }
 
-export async function startAuthorization(adapter: AuthOAuthAdapter) {
+export async function startAuthorization(
+  adapter: Pick<AuthPort, 'startAuthorization' | 'completeAuthorization'>,
+) {
   const result = await adapter.startAuthorization.call(adapter, {
     provider: 'google',
     redirectUri: REDIRECT_URI,

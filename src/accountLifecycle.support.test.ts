@@ -1,4 +1,5 @@
-import type { AuthAdapter, AuthSession } from '@ankhorage/contracts/auth';
+import type { AuthPort } from '@ankhorage/auth';
+import type { AuthSession } from '@ankhorage/contracts/auth';
 
 import { createSupabaseAuthAdapter } from './createSupabaseAuthAdapter.js';
 import type { SupabaseAuthStorage, SupabaseOAuthLifecycleEvent } from './types.js';
@@ -53,13 +54,13 @@ export function createOAuthFetch(input: {
   );
 }
 
-export async function completeOAuth(adapter: AuthAdapter, provider: 'apple' | 'google') {
-  const started = await adapter.oauth?.startAuthorization({
+export async function completeOAuth(adapter: AuthPort, provider: 'apple' | 'google') {
+  const started = await adapter.startAuthorization({
     provider,
     redirectUri: 'ankh-app://auth/callback',
   });
-  if (started?.ok !== true) throw new Error('OAuth start failed.');
-  const completed = await adapter.oauth?.completeAuthorization({
+  if (started.ok !== true) throw new Error('OAuth start failed.');
+  const completed = await adapter.completeAuthorization({
     attemptId: started.data.attemptId,
     response: { type: 'callback', url: `ankh-app://auth/callback?code=${CALLBACK_CODE}` },
   });

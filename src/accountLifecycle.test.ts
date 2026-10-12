@@ -93,7 +93,7 @@ it('clears an invalid refresh session and still clears local state after remote 
       ),
   });
 
-  expect(await refreshAdapter.refreshSession?.()).toMatchObject({
+  expect(await refreshAdapter.refreshSession()).toMatchObject({
     ok: false,
     error: { code: 'session_expired' },
   });
