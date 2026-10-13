@@ -4,9 +4,9 @@
 
 ## Repository
 
-Package: `@ankhorage/supabase-auth`
+Package: `@ankhorage/auth-supabase`
 
-Supabase auth adapter implementing shared TypeScript auth contracts.
+Supabase adapter implementing the provider-neutral Ankhorage auth port.
 
 ## Current architecture only
 
