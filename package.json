@@ -58,14 +58,14 @@
   },
   "devDependencies": {
     "@ankhorage/devtools": "^2.3.18",
-    "@ankhorage/paradox": "^0.3.3",
+    "@ankhorage/paradox": "^0.3.4",
     "@types/bun": "^1.4.2",
     "@types/node": "^26.6.5",
     "typescript": "^6.0.3"
   },
   "dependencies": {
     "@ankhorage/auth": "^0.1.2",
-    "@ankhorage/contracts": "^25.2.0",
+    "@ankhorage/contracts": "^26.0.0",
     "@noble/hashes": "2.4.0"
   },
   "packageManager": "bun@1.4.2"
