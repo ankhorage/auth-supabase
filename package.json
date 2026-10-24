@@ -1,7 +1,7 @@
 {
   "name": "@ankhorage/auth-supabase",
   "type": "module",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "Supabase adapter implementing the provider-neutral Ankhorage auth port.",
   "homepage": "https://github.com/ankhorage/auth-supabase#readme",
   "bugs": {
