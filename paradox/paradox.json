@@ -2,8 +2,10 @@
   "packageName": "SUPABASE AUTH",
   "packageId": "@ankhorage/auth-supabase",
   "description": "Supabase adapter implementing the provider-neutral Ankhorage auth port.",
-  "collaborators": null,
-  "donation": null,
+  "collaborators": true,
+  "donation": {
+    "account": "ankhorage"
+  },
   "badges": [
     {
       "id": "license",
@@ -14,7 +16,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v2.0.14",
+      "value": "v2.0.15",
       "color": "cb3837"
     },
     {
