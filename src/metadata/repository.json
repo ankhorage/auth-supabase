@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "kind": "adapter",
+  "title": "Ankhorage Supabase Auth Adapter",
+  "summary": "Implements the provider-neutral Ankhorage authentication port using Supabase Auth.",
+  "purpose": "Translate portable authentication and session operations to Supabase while preserving the shared auth boundary.",
+  "domain": "Supabase authentication adapter",
+  "responsibilities": [
+    "Create a Supabase-backed authentication adapter from explicit configuration.",
+    "Implement password, session, profile, account-lifecycle, and supported OAuth operations.",
+    "Protect OAuth attempt state and map Supabase responses into shared auth contracts."
+  ],
+  "boundaries": [
+    "Does not define the provider-neutral auth port or portable auth contracts.",
+    "Does not provision Supabase projects, credentials, callback URLs, or application sessions.",
+    "Does not own provider-independent authorization policy."
+  ],
+  "audience": [
+    "Applications selecting Supabase Auth behind the Ankhorage auth port.",
+    "Composition code requiring a configured provider-neutral authentication adapter."
+  ],
+  "useCases": [
+    "Authenticate and manage sessions with Supabase through the shared auth port.",
+    "Start and complete supported OAuth flows with replay-resistant attempt state.",
+    "Perform supported account and profile lifecycle operations."
+  ],
+  "architecture": {
+    "role": "Outbound provider adapter translating Ankhorage auth operations to Supabase Auth.",
+    "invariants": [
+      "The public factory returns the provider-neutral authentication boundary.",
+      "OAuth state is validated before callback completion.",
+      "Supabase-specific transport and error details do not escape the adapter contract."
+    ]
+  },
+  "constraints": {
+    "limitations": [
+      "Requires a configured and reachable Supabase Auth project.",
+      "Available OAuth and account operations depend on Supabase provider configuration."
+    ]
+  }
+}
