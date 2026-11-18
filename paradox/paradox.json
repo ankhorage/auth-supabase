@@ -1,7 +1,8 @@
 {
   "packageName": "SUPABASE AUTH",
   "packageId": "@ankhorage/auth-supabase",
-  "description": "Supabase adapter implementing the provider-neutral Ankhorage auth port.",
+  "description": "Implements the provider-neutral Ankhorage authentication port using Supabase Auth.",
+  "purpose": "Translate portable authentication and session operations to Supabase while preserving the shared auth boundary.",
   "collaborators": true,
   "donation": {
     "account": "ankhorage"
@@ -16,7 +17,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v2.0.17",
+      "value": "v2.0.18",
       "color": "cb3837"
     },
     {

@@ -3,9 +3,11 @@
 
 # SUPABASE AUTH
 
-![license: MIT](./paradox/badges/license.svg) ![npm: v2.0.17](./paradox/badges/npm.svg) ![runtime: bun](./paradox/badges/runtime.svg) ![typescript: strict](./paradox/badges/typescript.svg) ![eslint: checked](./paradox/badges/eslint.svg) ![prettier: checked](./paradox/badges/prettier.svg) ![build: checked](./paradox/badges/build.svg) ![tests: checked](./paradox/badges/tests.svg) ![paradox: warnings](./paradox/badges/docs.svg)
+![license: MIT](./paradox/badges/license.svg) ![npm: v2.0.18](./paradox/badges/npm.svg) ![runtime: bun](./paradox/badges/runtime.svg) ![typescript: strict](./paradox/badges/typescript.svg) ![eslint: checked](./paradox/badges/eslint.svg) ![prettier: checked](./paradox/badges/prettier.svg) ![build: checked](./paradox/badges/build.svg) ![tests: checked](./paradox/badges/tests.svg) ![paradox: warnings](./paradox/badges/docs.svg)
 
-Supabase adapter implementing the provider-neutral Ankhorage auth port.
+Implements the provider-neutral Ankhorage authentication port using Supabase Auth.
+
+Translate portable authentication and session operations to Supabase while preserving the shared auth boundary.
 
 ## Documentation
 
