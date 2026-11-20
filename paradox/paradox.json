@@ -3,6 +3,7 @@
   "packageId": "@ankhorage/auth-supabase",
   "description": "Implements the provider-neutral Ankhorage authentication port using Supabase Auth.",
   "purpose": "Translate portable authentication and session operations to Supabase while preserving the shared auth boundary.",
+  "productDocumentation": null,
   "collaborators": true,
   "donation": {
     "account": "ankhorage"
@@ -17,7 +18,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v2.0.18",
+      "value": "v2.0.19",
       "color": "cb3837"
     },
     {
@@ -53,8 +54,8 @@
     {
       "id": "tests",
       "label": "tests",
-      "value": "checked",
-      "color": "0a7f3f"
+      "value": "configured",
+      "color": "6f42c1"
     },
     {
       "id": "docs",
