@@ -6,7 +6,7 @@
       "name": "@ankhorage/auth-supabase",
       "dependencies": {
         "@ankhorage/auth": "^0.2.0",
-        "@ankhorage/contracts": "^26.16.0",
+        "@ankhorage/contracts": "^26.17.0",
         "@noble/hashes": "2.4.0",
       },
       "devDependencies": {
