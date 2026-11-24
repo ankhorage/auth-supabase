@@ -1,5 +1,11 @@
 # @ankhorage/supabase-auth
 
+## 2.0.26
+
+### Patch Changes
+
+- a855955: Update dependencies: `@ankhorage/auth`.
+
 ## 2.0.25
 
 ### Patch Changes
