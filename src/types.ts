@@ -1,3 +1,4 @@
+import type { ServerCallerAuthenticationPort } from '@ankhorage/auth';
 import type {
   AuthOAuthErrorCode,
   AuthOAuthErrorStage,
@@ -78,6 +79,16 @@ export interface SupabaseAuthConfig {
   profileVerification?: SupabaseAuthProfileVerificationConfig;
   onOAuthLifecycleEvent?: SupabaseOAuthLifecycleObserver;
 }
+
+/** Configure server-side verification without browser storage or application-specific state. */
+export interface SupabaseServerCallerAuthenticationConfig {
+  readonly url: string;
+  readonly anonKey: string;
+  readonly fetch?: SupabaseAuthFetch;
+}
+
+/** Name the portable server-verifier result implemented by the Supabase adapter. */
+export type SupabaseServerCallerAuthenticationPort = ServerCallerAuthenticationPort;
 
 export type SupabaseAuthErrorCode =
   | 'invalid_credentials'
