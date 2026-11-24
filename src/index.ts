@@ -1,4 +1,5 @@
 export { createSupabaseAuthAdapter } from './createSupabaseAuthAdapter.js';
+export { createSupabaseServerCallerAuthenticationPort } from './createSupabaseServerCallerAuthenticationPort.js';
 export type {
   SupabaseOAuthProviderDefinition,
   SupabaseOAuthProviderId,
@@ -37,5 +38,7 @@ export type {
   SupabaseOAuthProfileVerificationResult,
   SupabaseOAuthProfileVerifier,
   SupabaseProviderErrorCause,
+  SupabaseServerCallerAuthenticationConfig,
+  SupabaseServerCallerAuthenticationPort,
 } from './types.js';
 export { SUPABASE_AUTH_PROFILE_FIELDS } from './types.js';
