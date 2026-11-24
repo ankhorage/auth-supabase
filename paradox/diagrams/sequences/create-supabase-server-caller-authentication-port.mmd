@@ -1,0 +1,8 @@
+sequenceDiagram
+  participant participant_createSupabaseServerCallerAuthenticationPort as createSupabaseServerCallerAuthenticationPort
+  participant participant_normalizeUrl as normalizeUrl
+  participant participant_requireAnonKey as requireAnonKey
+  participant_createSupabaseServerCallerAuthenticationPort->>participant_normalizeUrl: normalizeUrl()
+  participant_normalizeUrl-->>participant_createSupabaseServerCallerAuthenticationPort: return
+  participant_createSupabaseServerCallerAuthenticationPort->>participant_requireAnonKey: requireAnonKey()
+  participant_requireAnonKey-->>participant_createSupabaseServerCallerAuthenticationPort: return

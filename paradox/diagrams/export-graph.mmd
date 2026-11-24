@@ -4,6 +4,7 @@ graph LR
   module_src_authSessionContext_ts["src/authSessionContext.ts"]
   module_src_authSessionOperations_ts["src/authSessionOperations.ts"]
   module_src_createSupabaseAuthAdapter_ts["src/createSupabaseAuthAdapter.ts"]
+  module_src_createSupabaseServerCallerAuthenticationPort_ts["src/createSupabaseServerCallerAuthenticationPort.ts"]
   module_src_errors_ts["src/errors.ts"]
   module_src_index_ts["src/index.ts"]
   module_src_oauth_ts["src/oauth.ts"]
@@ -31,6 +32,9 @@ graph LR
   module_src_profileVerification_ts --> export_createSupabaseOAuthProfileVerifier
   export_createSupabaseOAuthProfileVerifier -.-> export_SupabaseAuthProfileVerificationConfig
   export_createSupabaseOAuthProfileVerifier -.-> export_SupabaseOAuthProfileVerifier
+  export_createSupabaseServerCallerAuthenticationPort["createSupabaseServerCallerAuthenticationPort"]
+  module_src_createSupabaseServerCallerAuthenticationPort_ts --> export_createSupabaseServerCallerAuthenticationPort
+  export_createSupabaseServerCallerAuthenticationPort -.-> export_SupabaseServerCallerAuthenticationConfig
   export_getSupabaseOAuthProviderDefinition["getSupabaseOAuthProviderDefinition"]
   module_src_oauthProviderDefinitions_ts --> export_getSupabaseOAuthProviderDefinition
   export_getSupabaseOAuthProviderDefinition -.-> export_SupabaseOAuthProviderDefinition
@@ -94,6 +98,10 @@ graph LR
   module_src_oauthProviderDefinitions_ts --> export_SupabaseOAuthSecretPayload
   export_SupabaseProviderErrorCause["SupabaseProviderErrorCause"]
   module_src_types_ts --> export_SupabaseProviderErrorCause
+  export_SupabaseServerCallerAuthenticationConfig["SupabaseServerCallerAuthenticationConfig"]
+  module_src_types_ts --> export_SupabaseServerCallerAuthenticationConfig
+  export_SupabaseServerCallerAuthenticationPort["SupabaseServerCallerAuthenticationPort"]
+  module_src_types_ts --> export_SupabaseServerCallerAuthenticationPort
   export_validateSupabaseOAuthSecretPayload["validateSupabaseOAuthSecretPayload"]
   module_src_oauthProviderDefinitions_ts --> export_validateSupabaseOAuthSecretPayload
   export_validateSupabaseOAuthSecretPayload -.-> export_SupabaseOAuthSecretPayload

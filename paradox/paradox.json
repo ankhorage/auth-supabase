@@ -18,7 +18,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v2.0.26",
+      "value": "v2.1.0",
       "color": "cb3837"
     },
     {
@@ -205,6 +205,16 @@
       ]
     },
     {
+      "path": "src/createSupabaseServerCallerAuthenticationPort.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/types.ts"
+      ],
+      "exports": [
+        "createSupabaseServerCallerAuthenticationPort"
+      ]
+    },
+    {
       "path": "src/errors.ts",
       "isEntrypoint": false,
       "dependencies": [
@@ -224,6 +234,7 @@
       "exports": [
         "createSupabaseAuthAdapter",
         "createSupabaseOAuthProfileVerifier",
+        "createSupabaseServerCallerAuthenticationPort",
         "getSupabaseOAuthProviderDefinition",
         "isSupabaseOAuthProviderId",
         "materializeSupabaseOAuthEnvironment",
@@ -251,6 +262,8 @@
         "SupabaseOAuthSecretFieldDefinition",
         "SupabaseOAuthSecretPayload",
         "SupabaseProviderErrorCause",
+        "SupabaseServerCallerAuthenticationConfig",
+        "SupabaseServerCallerAuthenticationPort",
         "validateSupabaseOAuthSecretPayload",
         "verifySupabaseOAuthProfile"
       ]
@@ -526,7 +539,9 @@
         "SupabaseOAuthProfileVerificationInput",
         "SupabaseOAuthProfileVerificationResult",
         "SupabaseOAuthProfileVerifier",
-        "SupabaseProviderErrorCause"
+        "SupabaseProviderErrorCause",
+        "SupabaseServerCallerAuthenticationConfig",
+        "SupabaseServerCallerAuthenticationPort"
       ]
     }
   ],
@@ -602,6 +617,44 @@
             }
           ],
           "returnType": "SupabaseOAuthProfileVerifier",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "createSupabaseServerCallerAuthenticationPort",
+      "title": null,
+      "description": "Create a server-only Supabase adapter that asks the provider to verify each opaque credential.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "function",
+      "modulePath": "src/createSupabaseServerCallerAuthenticationPort.ts",
+      "sourceLocation": {
+        "filePath": "src/createSupabaseServerCallerAuthenticationPort.ts",
+        "line": 9,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "SupabaseServerCallerAuthenticationConfig"
+      ],
+      "signatures": [
+        {
+          "label": "(config: SupabaseServerCallerAuthenticationConfig) => ServerCallerAuthenticationPort",
+          "parameters": [
+            {
+              "name": "config",
+              "type": "SupabaseServerCallerAuthenticationConfig",
+              "required": true,
+              "description": null
+            }
+          ],
+          "returnType": "ServerCallerAuthenticationPort",
           "returnDescription": null
         }
       ],
@@ -803,7 +856,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 19,
+        "line": 20,
         "column": 14
       },
       "exportPaths": [
@@ -891,7 +944,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 70,
+        "line": 71,
         "column": 1
       },
       "exportPaths": [
@@ -982,7 +1035,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 82,
+        "line": 93,
         "column": 1
       },
       "exportPaths": [
@@ -1004,7 +1057,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 26,
+        "line": 27,
         "column": 1
       },
       "exportPaths": [
@@ -1026,7 +1079,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 28,
+        "line": 29,
         "column": 1
       },
       "exportPaths": [
@@ -1077,7 +1130,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 11,
+        "line": 12,
         "column": 1
       },
       "exportPaths": [
@@ -1099,7 +1152,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 13,
+        "line": 14,
         "column": 1
       },
       "exportPaths": [
@@ -1143,7 +1196,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 54,
+        "line": 55,
         "column": 1
       },
       "exportPaths": [
@@ -1203,7 +1256,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 66,
+        "line": 67,
         "column": 1
       },
       "exportPaths": [
@@ -1225,7 +1278,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 51,
+        "line": 52,
         "column": 1
       },
       "exportPaths": [
@@ -1247,7 +1300,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 39,
+        "line": 40,
         "column": 1
       },
       "exportPaths": [
@@ -1291,7 +1344,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 45,
+        "line": 46,
         "column": 1
       },
       "exportPaths": [
@@ -1313,7 +1366,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 47,
+        "line": 48,
         "column": 1
       },
       "exportPaths": [
@@ -1535,7 +1588,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 94,
+        "line": 105,
         "column": 1
       },
       "exportPaths": [
@@ -1559,6 +1612,72 @@
           "description": null
         }
       ],
+      "structuredRows": []
+    },
+    {
+      "name": "SupabaseServerCallerAuthenticationConfig",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/types.ts",
+      "sourceLocation": {
+        "filePath": "src/types.ts",
+        "line": 84,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "anonKey",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "fetch",
+          "kind": "property",
+          "type": "SupabaseAuthFetch | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "url",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "SupabaseServerCallerAuthenticationPort",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "unknown",
+      "modulePath": "src/types.ts",
+      "sourceLocation": {
+        "filePath": "src/types.ts",
+        "line": 91,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
       "structuredRows": []
     },
     {
@@ -2040,6 +2159,83 @@
       "sourceLocation": {
         "filePath": "src/createSupabaseAuthAdapter.ts",
         "line": 111,
+        "column": 1
+      }
+    },
+    {
+      "name": "createSupabaseServerCallerAuthenticationPort",
+      "description": "Create a server-only Supabase adapter that asks the provider to verify each opaque credential.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/createSupabaseServerCallerAuthenticationPort.ts",
+        "line": 9,
+        "column": 1
+      }
+    },
+    {
+      "name": "authenticateCaller",
+      "description": "Verify a credential through Supabase Auth and return only a normalized provider-verified caller.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/createSupabaseServerCallerAuthenticationPort.ts",
+        "line": 22,
+        "column": 1
+      }
+    },
+    {
+      "name": "authenticationFailure",
+      "description": "Translate provider rejection into a stable failure without returning provider details or the credential.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/createSupabaseServerCallerAuthenticationPort.ts",
+        "line": 47,
+        "column": 1
+      }
+    },
+    {
+      "name": "normalizeCaller",
+      "description": "Normalize only portable primitive identity claims from a provider-verified Supabase user document.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/createSupabaseServerCallerAuthenticationPort.ts",
+        "line": 55,
+        "column": 1
+      }
+    },
+    {
+      "name": "containsExpiredMarker",
+      "description": "Detect Supabase's expiry indication without exposing its error payload to the caller.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/createSupabaseServerCallerAuthenticationPort.ts",
+        "line": 72,
+        "column": 1
+      }
+    },
+    {
+      "name": "normalizeUrl",
+      "description": "Normalize a configured Supabase base URL once at adapter construction.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/createSupabaseServerCallerAuthenticationPort.ts",
+        "line": 77,
+        "column": 1
+      }
+    },
+    {
+      "name": "requireAnonKey",
+      "description": "Require the configured public Supabase API key without accepting blank credentials.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/createSupabaseServerCallerAuthenticationPort.ts",
+        "line": 85,
         "column": 1
       }
     },
@@ -3416,6 +3612,14 @@
     },
     {
       "kind": "export",
+      "name": "createSupabaseServerCallerAuthenticationPort",
+      "sourcePath": "src/createSupabaseServerCallerAuthenticationPort.ts",
+      "symbolName": "createSupabaseServerCallerAuthenticationPort",
+      "description": "Create a server-only Supabase adapter that asks the provider to verify each opaque credential.",
+      "isReadme": false
+    },
+    {
+      "kind": "export",
       "name": "getSupabaseOAuthProviderDefinition",
       "sourcePath": "src/oauthProviderDefinitions.ts",
       "symbolName": "getSupabaseOAuthProviderDefinition",
@@ -3569,6 +3773,11 @@
         "sourcePath": "src/createSupabaseAuthAdapter.ts"
       },
       {
+        "fromPath": "src/createSupabaseServerCallerAuthenticationPort.ts",
+        "toPath": "src/types.ts",
+        "sourcePath": "src/createSupabaseServerCallerAuthenticationPort.ts"
+      },
+      {
         "fromPath": "src/errors.ts",
         "toPath": "src/types.ts",
         "sourcePath": "src/errors.ts"
@@ -3576,6 +3785,11 @@
       {
         "fromPath": "src/index.ts",
         "toPath": "src/createSupabaseAuthAdapter.ts",
+        "sourcePath": "src/index.ts"
+      },
+      {
+        "fromPath": "src/index.ts",
+        "toPath": "src/createSupabaseServerCallerAuthenticationPort.ts",
         "sourcePath": "src/index.ts"
       },
       {
@@ -4357,6 +4571,48 @@
         "toSymbol": "createSupabaseOAuthProfileVerifier",
         "callExpression": "createSupabaseOAuthProfileVerifier",
         "sourcePath": "src/createSupabaseAuthAdapter.ts"
+      },
+      {
+        "fromSymbol": "createSupabaseServerCallerAuthenticationPort",
+        "toSymbol": "normalizeUrl",
+        "callExpression": "normalizeUrl",
+        "sourcePath": "src/createSupabaseServerCallerAuthenticationPort.ts"
+      },
+      {
+        "fromSymbol": "createSupabaseServerCallerAuthenticationPort",
+        "toSymbol": "requireAnonKey",
+        "callExpression": "requireAnonKey",
+        "sourcePath": "src/createSupabaseServerCallerAuthenticationPort.ts"
+      },
+      {
+        "fromSymbol": "authenticateCaller",
+        "toSymbol": "authenticateCaller",
+        "callExpression": "authenticateCaller",
+        "sourcePath": "src/createSupabaseServerCallerAuthenticationPort.ts"
+      },
+      {
+        "fromSymbol": "authenticateCaller",
+        "toSymbol": "fetch",
+        "callExpression": "fetch",
+        "sourcePath": "src/createSupabaseServerCallerAuthenticationPort.ts"
+      },
+      {
+        "fromSymbol": "authenticateCaller",
+        "toSymbol": "authenticationFailure",
+        "callExpression": "authenticationFailure",
+        "sourcePath": "src/createSupabaseServerCallerAuthenticationPort.ts"
+      },
+      {
+        "fromSymbol": "authenticateCaller",
+        "toSymbol": "normalizeCaller",
+        "callExpression": "normalizeCaller",
+        "sourcePath": "src/createSupabaseServerCallerAuthenticationPort.ts"
+      },
+      {
+        "fromSymbol": "authenticationFailure",
+        "toSymbol": "containsExpiredMarker",
+        "callExpression": "containsExpiredMarker",
+        "sourcePath": "src/createSupabaseServerCallerAuthenticationPort.ts"
       },
       {
         "fromSymbol": "mapNetworkError",
@@ -5619,6 +5875,16 @@
         "sourcePath": "src/createSupabaseAuthAdapter.ts"
       },
       {
+        "fromSymbol": "createSupabaseServerCallerAuthenticationPort",
+        "toType": "ServerCallerAuthenticationPort",
+        "sourcePath": "src/createSupabaseServerCallerAuthenticationPort.ts"
+      },
+      {
+        "fromSymbol": "createSupabaseServerCallerAuthenticationPort",
+        "toType": "SupabaseServerCallerAuthenticationConfig",
+        "sourcePath": "src/createSupabaseServerCallerAuthenticationPort.ts"
+      },
+      {
         "fromSymbol": "SupabaseOAuthProviderDefinition",
         "toType": "SupabaseOAuthRuntimeEnvironmentDefinition",
         "sourcePath": "src/oauthProviderDefinitions.ts"
@@ -5791,6 +6057,11 @@
       {
         "fromSymbol": "SupabaseOAuthProfileVerificationInput",
         "toType": "AuthSession",
+        "sourcePath": "src/types.ts"
+      },
+      {
+        "fromSymbol": "SupabaseServerCallerAuthenticationConfig",
+        "toType": "SupabaseAuthFetch",
         "sourcePath": "src/types.ts"
       }
     ],

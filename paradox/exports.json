@@ -77,6 +77,44 @@
     "structuredRows": []
   },
   {
+    "name": "createSupabaseServerCallerAuthenticationPort",
+    "title": null,
+    "description": "Create a server-only Supabase adapter that asks the provider to verify each opaque credential.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "function",
+    "modulePath": "src/createSupabaseServerCallerAuthenticationPort.ts",
+    "sourceLocation": {
+      "filePath": "src/createSupabaseServerCallerAuthenticationPort.ts",
+      "line": 9,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "SupabaseServerCallerAuthenticationConfig"
+    ],
+    "signatures": [
+      {
+        "label": "(config: SupabaseServerCallerAuthenticationConfig) => ServerCallerAuthenticationPort",
+        "parameters": [
+          {
+            "name": "config",
+            "type": "SupabaseServerCallerAuthenticationConfig",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "ServerCallerAuthenticationPort",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
     "name": "getSupabaseOAuthProviderDefinition",
     "title": null,
     "description": null,
@@ -271,7 +309,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 19,
+      "line": 20,
       "column": 14
     },
     "exportPaths": [
@@ -359,7 +397,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 70,
+      "line": 71,
       "column": 1
     },
     "exportPaths": [
@@ -450,7 +488,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 82,
+      "line": 93,
       "column": 1
     },
     "exportPaths": [
@@ -472,7 +510,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 26,
+      "line": 27,
       "column": 1
     },
     "exportPaths": [
@@ -494,7 +532,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 28,
+      "line": 29,
       "column": 1
     },
     "exportPaths": [
@@ -545,7 +583,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 11,
+      "line": 12,
       "column": 1
     },
     "exportPaths": [
@@ -567,7 +605,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 13,
+      "line": 14,
       "column": 1
     },
     "exportPaths": [
@@ -611,7 +649,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 54,
+      "line": 55,
       "column": 1
     },
     "exportPaths": [
@@ -671,7 +709,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 66,
+      "line": 67,
       "column": 1
     },
     "exportPaths": [
@@ -693,7 +731,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 51,
+      "line": 52,
       "column": 1
     },
     "exportPaths": [
@@ -715,7 +753,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 39,
+      "line": 40,
       "column": 1
     },
     "exportPaths": [
@@ -759,7 +797,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 45,
+      "line": 46,
       "column": 1
     },
     "exportPaths": [
@@ -781,7 +819,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 47,
+      "line": 48,
       "column": 1
     },
     "exportPaths": [
@@ -1003,7 +1041,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 94,
+      "line": 105,
       "column": 1
     },
     "exportPaths": [
@@ -1027,6 +1065,72 @@
         "description": null
       }
     ],
+    "structuredRows": []
+  },
+  {
+    "name": "SupabaseServerCallerAuthenticationConfig",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/types.ts",
+    "sourceLocation": {
+      "filePath": "src/types.ts",
+      "line": 84,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "anonKey",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "fetch",
+        "kind": "property",
+        "type": "SupabaseAuthFetch | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "url",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "SupabaseServerCallerAuthenticationPort",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "unknown",
+    "modulePath": "src/types.ts",
+    "sourceLocation": {
+      "filePath": "src/types.ts",
+      "line": 91,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
     "structuredRows": []
   },
   {

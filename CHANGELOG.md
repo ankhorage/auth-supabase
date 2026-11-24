@@ -1,5 +1,11 @@
 # @ankhorage/supabase-auth
 
+## 2.1.0
+
+### Minor Changes
+
+- c9612d7: Add a server-side Supabase caller verifier that returns only provider-verified normalized identities.
+
 ## 2.0.26
 
 ### Patch Changes

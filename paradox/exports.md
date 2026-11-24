@@ -26,6 +26,20 @@ Source: `src/profileVerification.ts:33:1`
   - input: `{ url: string; anonKey: string; fetch: SupabaseAuthFetch; config: SupabaseAuthProfileVerificationConfig; }`
   - returns: `SupabaseOAuthProfileVerifier`
 
+## createSupabaseServerCallerAuthenticationPort
+
+Kind: `function`
+Module: `src/createSupabaseServerCallerAuthenticationPort.ts`
+Source: `src/createSupabaseServerCallerAuthenticationPort.ts:9:1`
+
+Create a server-only Supabase adapter that asks the provider to verify each opaque credential.
+
+### Signatures
+
+- `(config: SupabaseServerCallerAuthenticationConfig) => ServerCallerAuthenticationPort`
+  - config: `SupabaseServerCallerAuthenticationConfig`
+  - returns: `ServerCallerAuthenticationPort`
+
 ## getSupabaseOAuthProviderDefinition
 
 Kind: `function`
@@ -90,7 +104,7 @@ Source: `src/oauthSetupRequirements.ts:21:1`
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:19:14`
+Source: `src/types.ts:20:14`
 
 ## SUPABASE_OAUTH_PROVIDER_DEFINITIONS
 
@@ -114,7 +128,7 @@ Source: `src/oauthSetupRequirements.ts:16:14`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:70:1`
+Source: `src/types.ts:71:1`
 
 ### Members
 
@@ -134,19 +148,19 @@ Source: `src/types.ts:70:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:82:1`
+Source: `src/types.ts:93:1`
 
 ## SupabaseAuthProfileField
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:26:1`
+Source: `src/types.ts:27:1`
 
 ## SupabaseAuthProfileVerificationConfig
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:28:1`
+Source: `src/types.ts:29:1`
 
 ### Members
 
@@ -161,13 +175,13 @@ Source: `src/types.ts:28:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:11:1`
+Source: `src/types.ts:12:1`
 
 ## SupabaseAuthStorage
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:13:1`
+Source: `src/types.ts:14:1`
 
 ### Members
 
@@ -181,7 +195,7 @@ Source: `src/types.ts:13:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:54:1`
+Source: `src/types.ts:55:1`
 
 ### Members
 
@@ -197,19 +211,19 @@ Source: `src/types.ts:54:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:66:1`
+Source: `src/types.ts:67:1`
 
 ## SupabaseOAuthLifecycleStatus
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:51:1`
+Source: `src/types.ts:52:1`
 
 ## SupabaseOAuthProfileVerificationInput
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:39:1`
+Source: `src/types.ts:40:1`
 
 ### Members
 
@@ -223,13 +237,13 @@ Source: `src/types.ts:39:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:45:1`
+Source: `src/types.ts:46:1`
 
 ## SupabaseOAuthProfileVerifier
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:47:1`
+Source: `src/types.ts:48:1`
 
 ## SupabaseOAuthProviderDefinition
 
@@ -292,7 +306,7 @@ Source: `src/oauthProviderDefinitions.ts:7:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:94:1`
+Source: `src/types.ts:105:1`
 
 ### Members
 
@@ -300,6 +314,26 @@ Source: `src/types.ts:94:1`
 | --- | --- | --- | --- | --- |
 | body | property | `unknown` | no |  |
 | status | property | `number \| undefined` | no |  |
+
+## SupabaseServerCallerAuthenticationConfig
+
+Kind: `type`
+Module: `src/types.ts`
+Source: `src/types.ts:84:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| anonKey | property | `string` | yes |  |
+| fetch | property | `SupabaseAuthFetch \| undefined` | no |  |
+| url | property | `string` | yes |  |
+
+## SupabaseServerCallerAuthenticationPort
+
+Kind: `unknown`
+Module: `src/types.ts`
+Source: `src/types.ts:91:1`
 
 ## validateSupabaseOAuthSecretPayload
 
